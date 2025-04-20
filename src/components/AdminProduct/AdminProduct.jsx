@@ -16,15 +16,8 @@ import DrawerComponent from "../../DrawerComponent/DrawerComponent";
 import useSelection from "antd/es/table/hooks/useSelection";
 import { useSelector } from "react-redux";
 
-
-
-
-
 const AdminProduct=()=>{
-
-    
-
-
+  
     const [isModalOpen,setIsModalOpen] = useState(false);
     const [rowselected,setRowSelected]=useState('')
     const [isOpenDrawer,setIsOpenDrawer]=useState(false)

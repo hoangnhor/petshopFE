@@ -14,8 +14,6 @@ import * as UserSevices from '../../services/UserServices'
 import { resetUser } from "../../redux/slides/userSlider";
 import Loading from "../LoadingComponent/Loading";
 
-
-
 // header ten wb va thanh tim kiem , gio hang
 const HeaderComponent=({isHiddenSearch=false, isHiddenCart=false})=>{
     const dispatch =useDispatch()
@@ -30,7 +28,6 @@ const HeaderComponent=({isHiddenSearch=false, isHiddenCart=false})=>{
     const handleNavigateLogin=()=>{
         navigate('/sign-in')
     }
-
 
         const handleLogout = async()=>{
             setLoading(true)
@@ -48,9 +45,9 @@ const HeaderComponent=({isHiddenSearch=false, isHiddenCart=false})=>{
     const content =(
         <div>
             
-            <WrapperContentPopup onClick={()=>navigate('/profile-user')} >Thông tin người dùng</WrapperContentPopup>
+            <WrapperContentPopup onClick={()=>navigate('/profile')} >Thông tin người dùng</WrapperContentPopup>
             {user?.isAdmin && (
-                <WrapperContentPopup onClick={()=>navigate('/system/admin')} >Quản Lý Hệ Thống</WrapperContentPopup>
+                <WrapperContentPopup onClick={()=>navigate('admin')} >Quản Lý Hệ Thống</WrapperContentPopup>
             )}
             <WrapperContentPopup onClick={handleLogout}>Đăng Xuất</WrapperContentPopup>
             
@@ -58,10 +55,6 @@ const HeaderComponent=({isHiddenSearch=false, isHiddenCart=false})=>{
         </div>
     );
         
-    
-
-
-
     return (
         <div style={{ width:'100%', background:'#de8ebe',display:'flex',justifyContent:'center'}}>
             <WrapperHeader style={{justifyContent:isHiddenSearch && isHiddenSearch ? 'space-between':'unset'}} >

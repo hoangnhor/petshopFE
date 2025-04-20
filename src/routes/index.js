@@ -17,6 +17,6 @@ export const routes = [
   { path: "/sign-up", page: SignUpPage, isShowHeader: false },
   { path: "/product-detail", page: ProductDetailsPage, isShowHeader: true },
   { path: "/profile", page: ProfilePage, isShowHeader: true },
-  { path: "/system/admin", page: AdminPage, isShowHeader: false, isPrivate: true },
+  { path: "admin", page: AdminPage, isShowHeader: false, isPrivate: true },
   { path: "*", page: NotFoundPage }
 ];

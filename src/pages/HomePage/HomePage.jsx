@@ -10,14 +10,17 @@ import * as ProductServices from '../../services/ProductServices';
 import { useQuery } from "@tanstack/react-query";
 
 const HomePage = () => {
+    // Danh sách danh mục hiển thị ở đầu trang
     const arr = ['Mua Đồ Cho Chó', 'Mua Đồ Cho Mèo', 'Dịch Vụ', 'Khuyến mãi', 'Tin tức', 'Liên Hệ'];
 
+    // Hàm lấy tất cả sản phẩm từ API
     const fetchProductAll = async () => {
         const res = await ProductServices.getAllProduct();
         console.log('res', res);
         return res;
     };
 
+    // Sử dụng react-query để quản lý trạng thái dữ liệu
     const { isLoading, data: products } = useQuery({
         queryKey: ['products'],
         queryFn: fetchProductAll,
@@ -27,6 +30,7 @@ const HomePage = () => {
 
     return (
         <>
+            {/* Phần danh mục sản phẩm */}
             <div style={{ padding: '0 120px' }}>
                 <WrapperTyperProduct>
                     {arr.map((item) => (
@@ -35,10 +39,10 @@ const HomePage = () => {
                 </WrapperTyperProduct>
             </div>
 
+            {/* Phần thân chính với slider và danh sách sản phẩm */}
             <div className="body" style={{ width: '100%', backgroundColor: '#efefef' }}>
                 <div id="container" style={{ height: '100%', width: '1300px', margin: '0 auto' }}>
                     <SliderComponen arrImages={[slider1, slider2, slider3]} />
-
                     <WrapperProducts>
                         {products?.data?.slice(0, 4).map((product) => (
                             <CardComponent
@@ -55,6 +59,7 @@ const HomePage = () => {
                         ))}
                     </WrapperProducts>
 
+                    {/* Nút Xem Thêm */}
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                         <WrapperButtonMore
                             textButton="Xem Thêm "
@@ -72,27 +77,27 @@ const HomePage = () => {
                     </div>
                 </div>
 
-                {/* Footer */}
+                {/* Footer - Phần chân trang hiển thị Sitemap, Bản đồ, và Liên hệ */}
                 <div
                     style={{
-                        width: "100%",
-                        background: "#fff",
-                        padding: "20px 0",
-                        borderTop: "1px solid #ddd",
-                        marginTop: "20px",
+                        width: "100%", // Chiều rộng toàn màn hình
+                        background: "#fff", // Màu nền trắng
+                        padding: "20px 0", // Khoảng đệm trên dưới
+                        borderTop: "1px solid #ddd", // Đường viền trên
+                        marginTop: "20px", // Khoảng cách với nội dung phía trên
                     }}
                 >
                     <div
                         style={{
-                            width: "1300px",
+                            width: "1300px", // Container cố định 1300px, căn giữa
                             margin: "0 auto",
-                            display: "flex",
-                            justifyContent: "space-around",
-                            alignItems: "flex-start",
-                            gap: "20px",
+                            display: "flex", // Sử dụng flexbox để chia cột
+                            justifyContent: "space-around", // Căn đều các cột
+                            alignItems: "flex-start", // Căn trên cùng
+                            gap: "20px", // Khoảng cách giữa các cột
                         }}
                     >
-                        {/* Cột Sitemap */}
+                        {/* Cột 1: Sitemap */}
                         <div>
                             <h3>Sitemap</h3>
                             {arr.map((item) => (
@@ -107,7 +112,7 @@ const HomePage = () => {
                             ))}
                         </div>
 
-                        {/* Cột bản đồ */}
+                        {/* Cột 2: Bản đồ Google Maps */}
                         <div>
                             <h3>Bản đồ</h3>
                             <iframe
@@ -122,7 +127,7 @@ const HomePage = () => {
                             ></iframe>
                         </div>
 
-                        {/* Cột Liên hệ */}
+                        {/* Cột 3: Thông tin liên hệ */}
                         <div>
                             <h3>Liên hệ</h3>
                             <p>
