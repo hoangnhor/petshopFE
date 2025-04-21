@@ -11,6 +11,7 @@ import { updateUser } from "../../redux/slides/userSlider";
 import * as message from '../../components/Message/Message';
 import { UploadOutlined } from '@ant-design/icons';
 import { getBase64 } from "../../utils";
+import FooterComponent from "../../components/FooterComponent/FooterComponent"; // Import FooterComponent
 
 const ProfilePage = () => {
     const user = useSelector((state) => state.user);
@@ -71,7 +72,6 @@ const ProfilePage = () => {
     return (
         <div style={{ width: '100%', background: '#efefef', marginTop: "0" }}>
             <div style={{ width: '1300px', margin: '0 auto', minHeight: '500px', paddingTop: "10px" }}>
-                <WrapperHeader style={{ marginBottom: "0" }}>Thông tin người dùng</WrapperHeader>
                 <Loading isPending={isPending}>
                     <WrapperContentProfile style={{ marginTop: "0" }}>
                         <WrapperInput>
@@ -163,39 +163,8 @@ const ProfilePage = () => {
                 </Loading>
             </div>
 
-            <div style={{ width: "100%", background: "#fff", padding: "20px 0", borderTop: "1px solid #ddd" }}>
-                <div style={{ width: "1300px", margin: "0 auto", display: "flex", justifyContent: "space-around", alignItems: "flex-start", gap: "20px" }}>
-                    <div>
-                        <h3>Sitemap</h3>
-                        {['Mua Đồ Cho Chó', 'Mua Đồ Cho Mèo', 'Dịch Vụ', 'Khuyến mãi', 'Tin tức', 'Liên Hệ'].map((item) => (
-                            <p key={item}>
-                                <a href={`/${item.toLowerCase().replace(/\s+/g, '-')}`} style={{ color: "#333", textDecoration: "none" }}>
-                                    {item}
-                                </a>
-                            </p>
-                        ))}
-                    </div>
-                    <div>
-                        <h3>Bản đồ</h3>
-                        <iframe
-                            title="Pet Store Location"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.954410426466!2d106.67525181062004!3d10.737997189364297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f62a90e5dbd%3A0x674d5126513db295!2zVHLGsOG7nW5n IMSQ4bqhaS ho4buNYy BDw7RuZy buZ2jhu4cgU8OgaSBHw7Ju!5e0!3m2!1svi!2s!4v1745177879295!5m2!1svi!2s"
-                            width="300"
-                            height="200"
-                            style={{ border: 0 }}
-                            allowFullScreen=""
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                    </div>
-                    <div>
-                        <h3>Liên hệ</h3>
-                        <p>Email: <a href="mailto:contact@petstore.com">contact@petstore.com</a></p>
-                        <p>Hotline: <a href="tel:+0123456789">0123 456 789</a></p>
-                        <p>Facebook: <a href="https://facebook.com/petstore" target="_blank" rel="noopener noreferrer">Pet Store</a></p>
-                    </div>
-                </div>
-            </div>
+            {/* Sử dụng FooterComponent thay vì viết trực tiếp */}
+            <FooterComponent />
         </div>
     );
 };
