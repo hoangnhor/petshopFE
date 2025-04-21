@@ -61,8 +61,8 @@ const SignUpPage = () => {
         <WrapperContainerLeft>
           <h1>Đăng Ký</h1>
           <p>Vui lòng nhập nội dung bên dưới để tạo tài khoản</p>
-          <InputFormComponent style={{ marginBottom: '30px' }} placeholder='Họ và tên' value={name} onChange={handleOnchangeName} />
-          <InputFormComponent style={{ marginBottom: '30px' }} placeholder='Email' value={email} onChange={handleOnchangeEmail} />
+          <InputFormComponent style={{ marginBottom: '20px' }} placeholder='Họ và tên' value={name} onChange={handleOnchangeName} />
+          <InputFormComponent style={{ marginBottom: '20px' }} placeholder='Email' value={email} onChange={handleOnchangeEmail} />
           <div style={{ position: 'relative' }}>
             <span
               onClick={() => setIsShowPassword(!isShowPassword)}

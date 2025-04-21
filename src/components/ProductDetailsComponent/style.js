@@ -1,22 +1,22 @@
 import { Col, Image, InputNumber } from "antd";
 import styled from "styled-components";
 
-export const WrapperStyleImageSmall =styled(Image)`
+export const WrapperStyleImageSmall = styled(Image)`
     height:64px;
     width:64px
 `
-export const WrapperStyleColImage =styled(Col)`
+export const WrapperStyleColImage = styled(Col)`
     flex-basics: unset;
     display:flex;
  `
- export const WrapperStyleNameProduct =styled.h1`
+export const WrapperStyleNameProduct = styled.h1`
     color: #333;
   font-size: 28px; 
   font-weight: 500;
   margin: 10px 0; 
   text-transform: uppercase;
  `
- export const WrapperPriceProduct = styled.div`
+export const WrapperPriceProduct = styled.div`
     background: rgb(250, 250, 250);
     border-radius:4px;
 `
@@ -27,7 +27,7 @@ export const WeightWrapper = styled.div`
   margin: 20px 0;
   font-size: 18px; 
 `
- export const WrapperPriceTextProduct = styled.div`
+export const WrapperPriceTextProduct = styled.div`
     color: #ef4c9b;
   font-size: 28px; /* Đồng nhất với tên */
   font-weight: 600;

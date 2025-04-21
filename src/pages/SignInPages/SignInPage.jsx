@@ -71,7 +71,7 @@ const SignInPage = () => {
           <h1>Xin Chào</h1>
           <p style={{ fontSize: '18px' }}>Đăng Nhập và tạo tài khoản</p>
           <InputFormComponent
-            style={{ marginBottom: '30px' }}
+            style={{ marginBottom: '20px' }}
             placeholder='Email'
             value={email}
             onChange={handleOnchangeEmail}

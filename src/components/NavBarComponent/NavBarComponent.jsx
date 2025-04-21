@@ -5,11 +5,9 @@ const NavBarComponent=()=>{
     const renderContent=(type,options)=>{
         switch(type){
             case 'text':
-                return options.map((option)=>{
-                    return(
-                        
-                            <WrapperTextValue>{option}</WrapperTextValue>
-                        
+                return options.map((option, index)=>{
+                    return(                       
+                        <WrapperTextValue key={index}>{option}</WrapperTextValue>                        
                     )
                 })
             default:
@@ -21,8 +19,7 @@ const NavBarComponent=()=>{
             <WrapperLableText> Danh Mục Sản Phẩm </WrapperLableText>
             <WrapperContent>
             {renderContent('text',['Sản Phẩm Chó','Sản Phẩm Mèo','Dịch Vụ'])}
-            </WrapperContent>
-            
+            </WrapperContent>          
         </div>
     )
 }

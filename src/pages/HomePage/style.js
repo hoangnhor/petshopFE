@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 
-export const WrapperTyperProduct=styled.div`
+export const WrapperTyperProduct = styled.div`
     display: flex;
     align-items: center;
     gap: 24px;
@@ -10,7 +10,7 @@ export const WrapperTyperProduct=styled.div`
     height:60px;
 `
 
-export const WrapperButtonMore=styled(ButtonComponent)`
+export const WrapperButtonMore = styled(ButtonComponent)`
     &:hover{
         color:#de2967;
         backgroud: #fff;
@@ -21,7 +21,7 @@ export const WrapperButtonMore=styled(ButtonComponent)`
     width:100%;
     text-align:center;
 `
-export const WrapperProducts=styled.div`
+export const WrapperProducts = styled.div`
     display:flex; 
     gap:    32px;
     margin-top:30px;

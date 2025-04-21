@@ -1,12 +1,12 @@
 import { Upload } from "antd";
 import styled from "styled-components";
 
-export const WrapperHeader =styled.h1`
+export const WrapperHeader = styled.h1`
     color:#000;
     font-size:22px;
     margin:4px 0;
 `
-export const WrapperContentProfile=styled.div`
+export const WrapperContentProfile = styled.div`
     display:flex;
     flex-direction:column;
     border: 1px  solid #ccc;
@@ -17,7 +17,7 @@ export const WrapperContentProfile=styled.div`
     gap:30px;
 `
 
-export const WrapperLabel =styled.label`
+export const WrapperLabel = styled.label`
     color:#000;
     font-size:18px;
     line-height:30px;
@@ -25,12 +25,12 @@ export const WrapperLabel =styled.label`
     width:80px;
     text-align:left;
 `
-export const WrapperInput=styled.div`
+export const WrapperInput = styled.div`
     display:flex;
     align-items:center;
      gap:10px;
 `
-export const WrapperUploadFile=styled(Upload)`
+export const WrapperUploadFile = styled(Upload)`
     & .ant-upload.ant-upload-select.ant-upload-select-picture-card {
         width:60px;
         height: 60px;
