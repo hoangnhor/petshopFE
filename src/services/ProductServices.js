@@ -15,7 +15,7 @@ export const getDetailsProduct = async (id) => {
     return res.data
 }
 export const searchProduct = async (keyword) => {
-    const res = await axios.get(`${process.env.REACT_APP_API_URL}product/search?keyword=${encodeURIComponent(keyword)}`);
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/product/search?keyword=${encodeURIComponent(keyword)}`);
     return res.data;
 };
 export const updateProduct = async (id, access_token, data) => {
