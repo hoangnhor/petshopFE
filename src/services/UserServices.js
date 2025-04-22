@@ -1,11 +1,34 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const axiosJWT = axios.create();
+
+// Interceptor để làm mới token
+axiosJWT.interceptors.response.use(
+    (response) => response,
+    async (error) => {
+        const originalRequest = error.config;
+        if (error.response?.status === 401 && !originalRequest._retry) {
+            originalRequest._retry = true;
+            try {
+                const res = await refreshToken();
+                const newAccessToken = res.access_token;
+                localStorage.setItem('access_token', newAccessToken);
+                originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
+                return axiosJWT(originalRequest);
+            } catch (refreshError) {
+                localStorage.removeItem('access_token');
+                window.location.href = '/login';
+                return Promise.reject(refreshError);
+            }
+        }
+        return Promise.reject(error);
+    }
+);
 
 export const loginUser = async (data) => {
     try {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/user/sign-in`, data, {
-            withCredentials: true, // Nhận cookie refresh_token
+            withCredentials: true,
         });
         return res.data;
     } catch (error) {
@@ -24,13 +47,21 @@ export const SignupUser = async (data) => {
 
 export const getDetailsUser = async (id, access_token) => {
     try {
+        if (!access_token) {
+            throw new Error('Chưa đăng nhập');
+        }
         const res = await axiosJWT.get(`${process.env.REACT_APP_API_URL}/api/user/get-details/${id}`, {
             headers: {
-                Authorization: `Bearer ${access_token}`, // Sửa header
+                Authorization: `Bearer ${access_token}`,
             },
         });
         return res.data;
     } catch (error) {
+        console.log('Lỗi chi tiết:', error); // Debug
+        if (error.response?.status === 401 || error.response?.status === 403) {
+            localStorage.removeItem('access_token');
+            window.location.href = '/login';
+        }
         throw new Error(error.response?.data?.message || 'Lỗi server');
     }
 };
@@ -49,8 +80,9 @@ export const refreshToken = async () => {
 export const logoutUser = async () => {
     try {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/user/log-out`, null, {
-            withCredentials: true, // Xóa cookie
+            withCredentials: true,
         });
+        localStorage.removeItem('access_token'); // Xóa token khi đăng xuất
         return res.data;
     } catch (error) {
         throw new Error(error.response?.data?.message || 'Lỗi server');
