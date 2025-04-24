@@ -8,6 +8,7 @@ import SignInPage from "../pages/SignInPages/SignInPage";
 import SignUpPage from "../pages/SignUpPages/SignUpPage";
 import TypeProductPage from "../pages/TypeProductPage/TypeProductPage";
 import AdminPage from "../pages/AdminPage/AdminPage";
+
 export const routes = [
   { path: "/", page: HomePage, isShowHeader: true },
   { path: "/order", page: OderPage, isShowHeader: true },

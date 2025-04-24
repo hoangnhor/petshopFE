@@ -21,4 +21,3 @@ export const WrapperTextlight = styled.span`
     font-size:15px;
     cursor:pointer;
 `
-

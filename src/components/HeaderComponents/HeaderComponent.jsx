@@ -56,7 +56,6 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
         { name: "Trang chủ", path: "/" },
         { name: "Sản phẩm", path: "/products" },
         { name: "Dịch Vụ", path: "/services" },
-        { name: "Tin tức", path: "/news" },
         { name: "Liên Hệ", path: "/contact" },
     ];
 
@@ -66,10 +65,10 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
                 {/* Phần logo, tìm kiếm, giỏ hàng */}
                 <div style={{ display: 'flex', width: '100%', alignItems: 'center' }}>
                     <Col span={5}>
-                        <WrapperTextHeader>Snoop Dogg</WrapperTextHeader>
+                        <WrapperTextHeader>petshop.vn</WrapperTextHeader>
                     </Col>
                     {!isHiddenSearch && (
-                        <Col span={13}>
+                        <Col span={13} style={{ marginRight: 20 }}>
                             <ButtonInputSearch
                                 size="large"
                                 placeholder="Tìm kiếm sản phẩm..."
@@ -141,9 +140,8 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
                             key={item.name}
                             to={item.path}
                             style={{
-                                color: '#fff', // Chữ màu trắng để nổi trên nền hồng
-                                fontSize: '20px',
-                                fontWeight: 'bold',
+                                color: '#fff',
+                                fontSize: '25px',
                                 padding: '10px 20px',
                                 textDecoration: 'none'
                             }}
